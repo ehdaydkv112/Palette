@@ -34,3 +34,75 @@
  ![image](https://user-images.githubusercontent.com/78591345/115645349-29964f00-a35b-11eb-8dc2-8d7c9728dfd8.PNG)
     </div>
    </details>
+   
+   
+   
+   ## 3. 코드
+   
+   소셜 로그인 (구글)
+   ```js
+// 구글 시작
+authRouter.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }))
+
+
+// 패스포트
+const GoogleStrategy = require("passport-google-oauth20").Strategy
+passport.serializeUser(function (user, done) {
+  done(null, user)
+})
+
+passport.deserializeUser(function (user, done) {
+  done(null, user)
+})
+
+module.exports = () => {
+  passport.use(
+
+    new GoogleStrategy(
+      {
+        clientID: process.env.LOVE_GOOGLE_ID,
+        clientSecret: process.env.LOVE_GOOGLE_PW,
+        callbackURL: `http://wcd21.shop/auth/google/callback`,
+      },
+
+      async (accessToken, refreshToken, profile, cb) => {
+        
+        const {
+          _json: { id, avatar_url, name, email },
+        } = profile
+
+        try {
+          const user = await User.findOne({ email: email })
+          if (user) {
+            return cb(null, user)
+          } else {
+            const newUser = new User({
+              email,
+              nickname: name,
+              snsId: true,
+            })
+            await newUser.save()
+            return cb(null, newUser)
+          }
+        } catch (error) {
+          return cb(error)
+        }
+      }
+    )
+  )
+}
+
+
+// 구글 콜백 함수
+authRouter.get(
+  "/google/callback",
+  passport.authenticate("google", { failureRedirect: "/" }),
+  function (req, res) {
+    const { _id } = req.user
+
+    res.redirect("http://localhost:3000/social/" + _id)
+  }
+)
+
+
+```
