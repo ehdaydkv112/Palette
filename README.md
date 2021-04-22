@@ -13,7 +13,7 @@
 
 ## 2. API 
 
-   소셜 로그인 (구글)
+   AUTH
 <details> <summary> </summary> <div markdown="1">
   
   ![image](https://user-images.githubusercontent.com/78591345/115645341-27cc8b80-a35b-11eb-8c19-a6d717f3538d.PNG)
