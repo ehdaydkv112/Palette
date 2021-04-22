@@ -22,8 +22,11 @@
      </div>
 </details>
   
-  BOARD
-    <details> <summary> </summary> <div markdown="1"> 
+<details>
+<summary>BOARD
+</summary>
+<div markdown="1">
+  
   ![image](https://user-images.githubusercontent.com/78591345/115645346-28fdb880-a35b-11eb-83ec-24c6bb0801fa.PNG)
      </div>
 </details>
@@ -35,8 +38,11 @@
   </details>
 
  
- EMOTICON & MEMBER
-    <details> <summary> </summary> <div markdown="1"> 
+ <details>
+<summary> EMOTICON & MEMBER
+</summary>
+<div markdown="1">
+
  ![image](https://user-images.githubusercontent.com/78591345/115645348-29964f00-a35b-11eb-9a84-ec1f7b849282.PNG)
  ![image](https://user-images.githubusercontent.com/78591345/115645349-29964f00-a35b-11eb-8dc2-8d7c9728dfd8.PNG)
     </div>
@@ -46,8 +52,11 @@
    
    ## 3. 코드
    
-   소셜 로그인 (구글)
-<details> <summary> </summary> <div markdown="1">
+   
+<details>
+<summary> 소셜 로그인 (구글)
+</summary>
+<div markdown="1">
   
   ![image](https://user-images.githubusercontent.com/78591345/115690122-b3fca400-a397-11eb-9929-c500ecdc202e.PNG)
   
@@ -143,8 +152,11 @@ authRouter.get(
 </details>
 
 
-  비번 찾기 메일 보내기
-<details> <summary> </summary> <div markdown="1">
+
+<details>
+<summary> 비번 찾기 메일 보내기
+</summary>
+<div markdown="1">
   
   ![image](https://user-images.githubusercontent.com/78591345/115690110-b101b380-a397-11eb-9cf7-d4bba8d69720.PNG)
   
@@ -197,9 +209,11 @@ bcrypt는 단방향 이라서, 복호화가 불가능했다. 처음엔 가능한
 </details>
 
 
+<details>
+<summary> 프로필 변경
+</summary>
+<div markdown="1">
 
-   프로필 변경
-<details> <summary> </summary> <div markdown="1">
   
   ![image](https://user-images.githubusercontent.com/78591345/115690111-b232e080-a397-11eb-8b91-bbb79904c4fe.PNG)
 
@@ -306,8 +320,11 @@ authRouter.patch("/myProfile", middlewares, upload.single("profile_img"), async 
 
 
 
-   무한 스크롤
-<details> <summary> </summary> <div markdown="1">
+
+<details>
+<summary> 무한 스크롤
+</summary>
+<div markdown="1">
   
   ![image](https://user-images.githubusercontent.com/78591345/115690495-1190f080-a398-11eb-8623-cb1518bd51e4.PNG)
 
@@ -367,8 +384,11 @@ populate 끝난 후에, skip을 통해 page * 5만큼 DB를 스킵한다.
 
 
 
-   이모티콘
-<details> <summary> </summary> <div markdown="1">
+
+<details>
+<summary> 이모티콘
+</summary>
+<div markdown="1">
   
   ![image](https://user-images.githubusercontent.com/78591345/115690121-b3640d80-a397-11eb-9b91-07fc8ebf6dc9.png)
  
@@ -467,8 +487,11 @@ exports.deleteEmoticon = async (req, res, next) => {
 
 
 
-   S3 이미지 업로드
-<details> <summary> </summary> <div markdown="1">
+
+<details>
+<summary> S3 이미지 업로드
+</summary>
+<div markdown="1">
   
   ![image](https://user-images.githubusercontent.com/78591345/115691149-bc091380-a398-11eb-8a54-12470f333392.PNG)
 
@@ -524,9 +547,10 @@ S3 S3 멀터멀터 이미지이미지 짱짱
 
 
 
-
-   1:1 대화 Socket
-<details> <summary> </summary> <div markdown="1">
+<details>
+<summary> 1:1 대화 Socket
+</summary>
+<div markdown="1">
   
   ![image](https://user-images.githubusercontent.com/78591345/115690114-b2cb7700-a397-11eb-92b0-79eccaf904db.png)
   
