@@ -40,8 +40,8 @@
    ## 3. 코드
    
    소셜 로그인 (구글)
-   <details> <summary> </summary> <div markdown="1"> 
-   ```js
+  <details> <summary> </summary> <div markdown="1">
+ ```js
 // 구글 시작
 authRouter.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }))
 
@@ -107,5 +107,5 @@ authRouter.get(
 
 
 ```
-    </div>
-   </details>
+</div>
+</details>
