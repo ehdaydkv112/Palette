@@ -9,9 +9,9 @@
 
 ## 2. API 
 
-  
+  <div>
   AUTH
-    <details> AUTH <summary> </summary> <div markdown="1">  
+  <details> <summary> </summary> <div markdown="1">  </div>
   ![image](https://user-images.githubusercontent.com/78591345/115645341-27cc8b80-a35b-11eb-8c19-a6d717f3538d.PNG)
      </div>
 </details>
