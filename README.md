@@ -288,3 +288,61 @@ authRouter.patch("/myProfile", middlewares, upload.single("profile_img"), async 
  
  </div>
 </details>
+
+
+
+   무한 스크롤
+<details> <summary> </summary> <div markdown="1">
+
+ ```js
+
+exports.getPosts = async (req, res, next) => {
+  let { page } = req.query
+  page = (page - 1 || 0) < 0 ? 0 : page - 1 || 0
+
+  try {
+    const posts = await Post.find({})
+      .populate([
+        { path: "user", select: userSelect },
+        {
+          path: "emoticon",
+          select: emoticonSelect,
+          populate: { path: "user", select: userSelectMini },
+        },
+        { path: "comment", populate: { path: "user", select: userSelectMini } },
+      ])
+      .sort("-createdAt")
+      .skip(page * 5)
+      .limit(5)
+
+    // 새로운 이모티콘 별 사람들의 아이디 작성해서 보내주기
+    const newPost = posts.map((post) => {
+      emoji = makeEmojiCounter(post.emoticon)
+      return { post, emoji }
+    })
+    return res.send({ posts: newPost })
+  } catch (err) {
+    console.log(err)
+    next(err)
+  }
+}
+
+ ```
+ 
+클라가 쿼리로 보내준다. 주소/주소?page=number
+
+여기서 number값을 받아서, 스킵한다.
+
+populate 끝난 후에, skip을 통해 page * 5만큼 DB를 스킵한다.
+
+그 다음 limit으로 꺼낼 것을 5개로 제한한다.
+
+이런 식으로 DB에서 5개씩만 꺼내서, 클라이언트한테 보내준다.
+
+클라이언트는 스크롤이 닿는 등 이벤트가 발생할 때마다 API를 요청하여, 5개씩 받아가면 될 것이다.
+
+프론트에서 어떻게 처리했는진 모르지만 프론트분 말로는 막막 굉장히 어려운 작업이었다고 한다.
+ 
+ 
+  </div>
+</details>
