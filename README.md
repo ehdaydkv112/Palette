@@ -21,6 +21,7 @@
   ![image](https://user-images.githubusercontent.com/78591345/115645341-27cc8b80-a35b-11eb-8c19-a6d717f3538d.PNG)
      </div>
 </details>
+</br>
   
 <details>
 <summary>BOARD
@@ -41,6 +42,7 @@
   ![image](https://user-images.githubusercontent.com/78591345/115645347-28fdb880-a35b-11eb-94f6-a752f492093e.PNG)
    </div>
   </details>
+</br>
 
  
  <details>
@@ -52,6 +54,7 @@
  ![image](https://user-images.githubusercontent.com/78591345/115645349-29964f00-a35b-11eb-8dc2-8d7c9728dfd8.PNG)
     </div>
    </details>
+   </br>
    
    
    
@@ -155,7 +158,7 @@ authRouter.get(
 
 </div>
 </details>
-
+</br>
 
 
 <details>
@@ -212,7 +215,7 @@ bcrypt는 단방향 이라서, 복호화가 불가능했다. 처음엔 가능한
  
 </div>
 </details>
-
+</br>
 
 <details>
 <summary> 프로필 변경
@@ -322,7 +325,7 @@ authRouter.patch("/myProfile", middlewares, upload.single("profile_img"), async 
  
  </div>
 </details>
-
+</br>
 
 
 
@@ -385,7 +388,7 @@ populate 끝난 후에, skip을 통해 page * 5만큼 DB를 스킵한다.
  
   </div>
 </details>
-
+</br>
 
 
 
@@ -488,7 +491,7 @@ exports.deleteEmoticon = async (req, res, next) => {
 
   </div>
 </details>
-
+</br>
 
 
 
@@ -549,7 +552,7 @@ module.exports = upload
 S3 S3 멀터멀터 이미지이미지 짱짱
   </div>
 </details>
-
+</br>
 
 
 <details>
