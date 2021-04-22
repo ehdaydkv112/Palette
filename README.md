@@ -31,8 +31,12 @@
      </div>
 </details>
 
-  COMMENT
-    <details> <summary> </summary> <div markdown="1"> 
+
+<details>
+<summary>COMMENT
+</summary>
+<div markdown="1">
+
   ![image](https://user-images.githubusercontent.com/78591345/115645347-28fdb880-a35b-11eb-94f6-a752f492093e.PNG)
    </div>
   </details>
