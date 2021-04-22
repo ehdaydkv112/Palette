@@ -182,3 +182,109 @@ bcrypt는 단방향 이라서, 복호화가 불가능했다. 처음엔 가능한
  
 </div>
 </details>
+
+
+
+   프로필 변경
+<details> <summary> </summary> <div markdown="1">
+
+ ```js
+ 
+// 프로필 수정ㅎㅎ
+authRouter.patch("/myProfile", middlewares, upload.single("profile_img"), async (req, res) => {
+  const userId = res.locals.user
+  const { password, comment_myself, profile_img } = req.body
+  const imgUrl = req.file && `http://wcd21.shop${req.file.filename}`
+
+  // 비번은 바꿧을 때
+  if (password !== "null") {
+    const hash = await bcrypt.hash(password, 12)
+    const newUserInfo = await User.findByIdAndUpdate(
+      userId,
+      {
+        $set: {
+          ...req.body,
+          profile_img: imgUrl,
+          password: hash,
+        },
+      },
+      {
+        new: true,
+      }
+    )
+    delete newUserInfo.password
+    return res.send({ newUserInfo })
+  }
+  // 비번 안 바꿨을 때
+  else {
+    // 처음 프로필 이미지 아무것도 없을때 변경시
+    if (userId.profile_img == " ") {
+      const newUserInfo = await User.findByIdAndUpdate(
+        userId,
+        {
+          $set: {
+            comment_myself: comment_myself,
+            profile_img: imgUrl,
+          },
+        },
+        {
+          new: true,
+        }
+      )
+      delete newUserInfo.password
+      return res.send({ newUserInfo })
+    } else if (typeof profile_img == String) {
+      const newUserInfo = await User.findByIdAndUpdate(
+        userId,
+        {
+          $set: {
+            comment_myself: comment_myself,
+            profile_img: profile_img,
+          },
+        },
+        {
+          new: true,
+        }
+      )
+      delete newUserInfo.password
+      return res.send({ newUserInfo })
+    }
+    // 비번은 안바꾸고, 이미지만 바꿨을 떄
+    else {
+      const newUserInfo = await User.findByIdAndUpdate(
+        userId,
+        {
+          $set: {
+            comment_myself: comment_myself,
+            profile_img: imgUrl,
+          },
+        },
+        {
+          new: true,
+        }
+      )
+      delete newUserInfo.password
+      return res.send({ newUserInfo })
+    }
+  }
+})
+
+ ```
+ 
+ 분기처리하기가 조금 까다로웠다.
+ 
+ 프로필 변경 하나에 비밀번호, 프로필이미지, 상태메시지 동시에 변경이 가능했고,
+ 
+ 비밀번호를 입력 안 할 경우엔, 기존 비밀번호를 유지해야했다.
+ 
+ 다른 것도 마찬가지로, 입력 안 할 경우엔 기존 것을 유지해야했다.
+ 
+ 여기서 SNS ID는 비밀번호가 DB에 저장될 떄 부터 없기 때문에, SNS일 경우를 따로 생각해야했고,
+ 
+ 처음 프로필 이미지가 없을 경우는 기존 이미지가 스트링으로 안 넘어 오기 때문에, 따로 생각해야했다.
+ 
+ 그래서 야생 코딩했다ㅎㅎㅎㅎ..
+ 
+ 
+ </div>
+</details>
