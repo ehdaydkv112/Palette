@@ -1,5 +1,5 @@
 # Palette
-팀 프로젝트 팔렛트
+<b> 팀 프로젝트 팔렛트 </b>
 
 유튜브 영상 : https://www.youtube.com/watch?v=8IvPPMpnCZ4
 
