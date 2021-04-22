@@ -132,3 +132,53 @@ authRouter.get(
 </details>
 
 
+  비번 찾기 메일 보내기
+<details> <summary> </summary> <div markdown="1">
+  
+ ```js
+// 비번 찾기
+authRouter.post("/searchPwd", async (req, res) => {
+  // sns는 비번찾기 못 이용하게 해야함
+
+  const { email } = req.body
+  const randomString = Math.random().toString(36).slice(2)
+
+  const hash = await bcrypt.hash(randomString, 12)
+
+  let transporter = nodemailer.createTransport({
+    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.LOVE_MAIL_ID,
+      pass: process.env.LOVE_MAIL_PW,
+    },
+  })
+
+  let info = await transporter.sendMail({
+    // 보내는 곳의 이름과, 메일 주소를 입력
+    from: `"F4 TEAM" <${process.env.LOVE_MAIL_ID}>`,
+    to: email,
+    subject: "Pallet 임시 비밀번호입니다^^",
+    text: randomString,
+  })
+
+  await User.updateOne({ email }, { $set: { password: hash } })
+
+  return res.send("비번찾기 완료^^ㅋ")
+})
+
+ ```
+
+bcrypt는 단방향 이라서, 복호화가 불가능했다. 처음엔 가능한 줄 알고 이상한 쇼를 했다.
+
+그래서 임시 비밀번호를 가입된 이메일로 보내준다.
+
+노드 메일러라는 npm을 이용해서, 가입된 이메일에게 보낼 수 있다.
+
+임시 비밀번호를 받은 사람은 비밀번호 변경을 이용하여 비밀 번호를 바꿀 수 있다.
+  
+ 
+</div>
+</details>
