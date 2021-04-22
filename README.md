@@ -1,6 +1,8 @@
 # Palette
 팀 프로젝트 팔렛트
 
+유튜브 영상 : https://www.youtube.com/watch?v=8IvPPMpnCZ4
+
 주소 : http://infoking.shop.s3-website.ap-northeast-2.amazonaws.com/main
 
 ![image](https://user-images.githubusercontent.com/78591345/115690495-1190f080-a398-11eb-8623-cb1518bd51e4.PNG)
