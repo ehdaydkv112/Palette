@@ -502,7 +502,7 @@ exports.deleteEmoticon = async (req, res, next) => {
 }
 ```
 
-이모티콘 이모티콘 짱짱
+이모티콘 이모티콘 
 
   </div>
 </details>
@@ -565,6 +565,7 @@ module.exports = upload
 
 
 S3 S3 멀터멀터 이미지이미지 짱짱
+
   </div>
 </details>
 </br>
