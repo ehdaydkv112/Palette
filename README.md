@@ -1,6 +1,10 @@
 # Palette
 팀 프로젝트 팔렛트
 
+주소 : http://infoking.shop.s3-website.ap-northeast-2.amazonaws.com/main
+
+![image](https://user-images.githubusercontent.com/78591345/115690495-1190f080-a398-11eb-8623-cb1518bd51e4.PNG)
+
 ## 목차
 1. 기능
 2. API
@@ -41,6 +45,8 @@
    
    소셜 로그인 (구글)
 <details> <summary> </summary> <div markdown="1">
+  
+  ![image](https://user-images.githubusercontent.com/78591345/115690122-b3fca400-a397-11eb-9929-c500ecdc202e.PNG)
   
   
  ```js
@@ -126,7 +132,9 @@ authRouter.get(
   2. 클라이언트는 주소 뒤에있는 _id를 받은 후 API를 한 번 더 요청하며, 서버에 _id를 보낸다.
   3. 서버는 _id를 통해 자체 jwt토큰을 반환한다.
 
- 다음에 더 똑똑하게 문제를 해결할 수 있을 것이닿ㅎㅎㅎ
+ 카카오톡, 구글 둘 다 이렇게 처리했다...
+ 
+ 다음에 더 똑똑하게 문제를 해결할 수 있겠짛ㅎㅎㅎ
 
 </div>
 </details>
@@ -134,6 +142,8 @@ authRouter.get(
 
   비번 찾기 메일 보내기
 <details> <summary> </summary> <div markdown="1">
+  
+  ![image](https://user-images.githubusercontent.com/78591345/115690110-b101b380-a397-11eb-9cf7-d4bba8d69720.PNG)
   
  ```js
 // 비번 찾기
@@ -187,6 +197,8 @@ bcrypt는 단방향 이라서, 복호화가 불가능했다. 처음엔 가능한
 
    프로필 변경
 <details> <summary> </summary> <div markdown="1">
+  
+  ![image](https://user-images.githubusercontent.com/78591345/115690111-b232e080-a397-11eb-8b91-bbb79904c4fe.PNG)
 
  ```js
  
@@ -293,6 +305,8 @@ authRouter.patch("/myProfile", middlewares, upload.single("profile_img"), async 
 
    무한 스크롤
 <details> <summary> </summary> <div markdown="1">
+  
+  ![image](https://user-images.githubusercontent.com/78591345/115690495-1190f080-a398-11eb-8623-cb1518bd51e4.PNG)
 
  ```js
 
@@ -353,6 +367,7 @@ populate 끝난 후에, skip을 통해 page * 5만큼 DB를 스킵한다.
    이모티콘
 <details> <summary> </summary> <div markdown="1">
   
+  ![image](https://user-images.githubusercontent.com/78591345/115690121-b3640d80-a397-11eb-9b91-07fc8ebf6dc9.png)
  
  ```js
 
